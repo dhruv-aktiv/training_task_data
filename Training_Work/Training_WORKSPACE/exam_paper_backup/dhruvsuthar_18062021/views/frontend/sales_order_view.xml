@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="portal_c_s_sales_order" name="Sales Order">
+		<t t-call="portal.portal_layout">
+			
+
+			<div class="row mt-3">
+				<div class="card w-100" style="width: 18rem;">
+					<div class="card-header">Sales Order</div>
+					<div class="card-body">
+						<table class="table table-sm w-50 ">
+							<tbody>
+								<tr>
+									<td style=" border: 0px;">
+										<strong>Name</strong>
+									</td>
+									<td style=" border: 0px;">
+										<span t-esc="sales_order.partner_id.name"/>
+									</td>
+								</tr>
+								<tr>
+									<td style=" border: 0px;">
+										<strong>Address</strong>
+									</td>
+									<td style=" border: 0px;">
+										<div>
+											<p style="display:inline-block!important;" t-esc="sales_order.partner_id.street"/>, 
+											<p style="display:inline-block!important;" t-esc="sales_order.partner_id.state_id.name"/>
+											, 
+											<p style="display:inline-block!important;" t-esc="sales_order.partner_id.country_id.name"/></div>
+									</td>
+								</tr>
+								<tr>
+									<td style=" border: 0px;">
+										<strong>Delivery Address</strong>
+									</td>
+									<td style=" border: 0px;">
+										<div>
+											<p style="display:inline-block!important;" t-esc="sales_order.partner_shipping_id.street"/>, 
+											<p style="display:inline-block!important;" t-esc="sales_order.partner_shipping_id.state_id.name"/>
+											, 
+											<p style="display:inline-block!important;" t-esc="sales_order.partner_shipping_id.country_id.name"/></div>
+									</td>
+								</tr>
+								<tr>
+									<td style=" border: 0px;">
+										<strong>Billing Address</strong>
+									</td>
+									<td style=" border: 0px;">
+										<div>
+											<p style="display:inline-block!important;" t-esc="sales_order.partner_invoice_id.street"/>, 
+											<p style="display:inline-block!important;" t-esc="sales_order.partner_invoice_id.state_id.name"/>
+											, 
+											<p style="display:inline-block!important;" t-esc="sales_order.partner_invoice_id.country_id.name"/></div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<strong class="mb-3">Order Lines</strong>
+						<t t-call="portal.portal_table" >
+							<thead>
+								<tr>
+									<th>Product</th>
+									<th class="text-right">Description</th>
+									<th class="text-right">Quantity</th>
+									<th class="text-right">Unit Price</th>
+									<th class="text-right">Taxes</th>
+									<th class="text-right">Amount</th>
+								</tr>
+							</thead>
+							<t t-as="sales_order_line" t-foreach="sales_order.order_line">
+								<tr>
+									<td>
+										<span t-esc="sales_order_line.product_id.name"/>
+									</td>
+									<td class="text-right">
+										<span t-esc="sales_order_line.name"/>
+									</td>
+									<td class="text-right">
+										<span t-esc="sales_order_line.product_uom_qty"/>
+									</td>
+									<td class="text-right">
+										<span t-esc="sales_order_line.price_unit"/>
+									</td>
+									<td class="text-right">
+										<span t-esc="sales_order_line.tax_id.name"/>
+									</td>
+									<td class="text-right">
+										<span t-esc="sales_order_line.price_subtotal"/>
+									</td>
+								</tr>
+							</t>
+						</t>
+						<div class="row">
+							<div class="col-sm-7 col-md-5 ml-auto">
+								<table class="table table-sm">
+									<tbody>
+										<tr class="border-black">
+											<td>
+												<strong>Subtotal</strong>
+											</td>
+											<td class="text-right">$ 
+												<span t-esc="sales_order.amount_untaxed"/>
+											</td>
+										</tr>
+										<tr class="border-black">
+											<td>
+												<strong>Total</strong>
+											</td>
+											<td class="text-right">$
+												<span t-esc="sales_order.amount_total"/>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+
+						<table class="table table-sm w-50 ">
+							<tbody>
+								<tr>
+									<td style=" border: 0px;">
+										<strong>Sales Person</strong>
+									</td>
+									<td style=" border: 0px;">
+										<span t-esc="sales_order.user_id.name"/>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</t>
+	</template>
+</odoo>

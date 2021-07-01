@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+food_item_model_id_cus,food_item_model_cus,model_food_hub_item_detail,food_hub.foodhub_cust,1,0,0,0
+food_item_model_id_o,food_item_model_o,model_food_hub_item_detail,food_hub.foodhub_owner,1,1,1,1
+                                    

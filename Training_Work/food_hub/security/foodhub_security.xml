@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+		<record id="foodhub_management_label" model="ir.module.category">
+			<field name="name">FoodHub Mng.</field>
+			<field name="description">User access level for FoodHub module</field>
+			<field name="sequence">2</field>
+		</record>
+		<record id="foodhub_management" model="ir.module.category">
+			<field name="name">FoodHub</field>
+			<field name="description">User access level for FoodHub module</field>
+			<field name="sequence">3</field>
+			<field name="parent_id" ref="foodhub_management_label" />
+		</record>
+		<record id="foodhub_cust" model="res.groups">
+			<field name="name">Customer</field>
+			<field name="category_id" ref="foodhub_management"/>
+		</record>
+		<record id="foodhub_owner" model="res.groups">
+			<field name="name">Owner</field>
+			<field name="category_id" ref="foodhub_management"/>
+			<field eval="[(4, ref('foodhub_cust'))]" name="implied_ids"/>
+		</record>
+	</data>
+</odoo>

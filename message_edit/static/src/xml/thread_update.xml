@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+	<t t-extend="mail.widget.Thread.Message">
+		<t t-jquery=".o_mail_info" t-operation="append">
+			   <span class="o_thread_edit" t-if="message.hasAuthor()" t-att-data-message-id="message.getID()">
+                        <i t-att-class="'fa fa-pencil-square-o'"  />
+                        <p t-att-data-oe-id="message.getAuthorID()"></p>
+                </span>
+		</t>
+	</t>
+</templates>

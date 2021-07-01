@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="portal_c_sales_order" name="Sales Orders">
+		<t t-call="portal.portal_layout">
+			<br/>
+
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+			 <t t-call="portal.portal_searchbar">
+                <t t-set="title">Sales Orders</t>
+            </t>
+
+
+             <t t-call="portal.portal_table">
+              
+                 
+                    <thead>
+                        <tr>
+                            <th>Sales Order #</th>
+                            <th class="text-right">Order Date</th>
+                            <th class="text-right">Total</th>
+                        </tr>
+                    </thead>
+             
+                    <t t-as="sales_order" t-foreach="sales_orders">
+                        <tr>
+                            <td>
+                                <a t-attf-href="/sales-orders/#{sales_order.id}" target="'_blank'">
+                                    <t t-esc="sales_order.name"/>
+                                </a>
+                            </td>
+                            <td class="text-right">
+                                <span t-field="sales_order.date_order"/>
+                            </td>
+                            <td class="text-right">
+                                <span t-field="sales_order.amount_total"/>
+                            </td>
+                           
+                        </tr>
+                    </t>
+            </t>
+
+		</t>
+	</template>
+</odoo>

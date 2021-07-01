@@ -1,0 +1,169 @@
+# learn today 24/02/2021
+- Button - Done
+- Widgets - Half Done
+- Inherit implementation on xml
+
+#what ma'am taught today : 24/02/2021
+- compute :- called when first page loaded and form submitted
+ - depeneds,store
+ - compute on non related/related fields
+- onchange :- called when onchange defined field val change 
+- ORM Methods :-
+ - search 
+ - search_count self.env['student.student'].search_count([('name', '=', '')])
+ - create 
+ - write
+ - browse	
+
+self.env['student.stu'].search([('id', '=', 1)])
+self.env['fcer'].browse(1)
+
+8
+self.en['grtgre'].browse(8)
+
+
+stud.stude(8).name
+
+
+
+self
+
+#RETURN TYPES of ORM Methods:- 
+ - create() - record set(tuple) 
+ - write() -  boolean(TRUE/FALSE)
+ - unlink() - boolean(TRUE/FALSE)
+ - search() - record set(tuple)
+ - search_count() -  int
+ - browse() - record set(tuple)
+    diff between search() and browse():- 
+	- browse() - search only "id" (we can pass multiple id ) ex:- browse([1,2,,3...])
+ 	- search() - search by any field
+ - read() - list of dictionary #which
+ - search_read() - list of dictionary
+ - copy() - record set(tuple)
+	
+
+what to prac today (02/03/2021):-
+ - read() - get specific column/field data #  id, name,first_name,address - #.read(['last_name'])
+ - search_read() - search by domain/field name and get specified column/field data #([]) # SELECT LAST_NAME FROM STUDENT WHERE FIRST_NAME = "dharmersh" #  .search_read([('FIRST_NAME','=','dharmesh')],["last_name"]) 
+
+
+
+what to do tomorrow (06/03/2021):-
+
+	- ENTER/UPDATE RECORD BY DATA.XML FILE
+	- practice of (4,ID),(5,0),(6,0,ID)
+	
+
+Todos :-
+1.enter/update record by data.xml file to view - Done
+2.practice of (4,ID),(5,0),(6,0,ID) - Working
+
+
+TODO 1:- enter/update record by data.xml file to view - Done
+ 1.create a data.xml in your data folder (if data folder not exist then create it) of your app(name must topic related & self explannary) - done
+ 2. create record tag for specific genrate/update record (record tag id must be unique and self explannnary for each records) - done
+ 3.register data.xml file to manifest.xml - done
+ 4.afer that run your server and you will find one record added with values which you specified in data.xml file - done
+ 5.try with noupdate="1" (by default no update = 0) - done
+ 6.now apply above step for many2one/one2many field - Done
+
+TODO 1:- practice of (4,ID),(5,0),(6,0,ID) in one2many/many2many fields - Working
+ * BY XML
+ * BY PYTHON
+
+#table1 - student 
+	- fields :-
+	 	course_ids - one2many
+#table2 - course 
+	- fields :-
+		student_id - many2one
+	ex:- id:-1
+		 course_name : - 'get started with c++'		
+
+
+#apply (1,ID,{vals})
+	course_obj - get course by name (using search method)
+
+	write.({
+		'course_ids' : [(1,cousrse_obj.id,{
+		'course_name' : 'get started adv. in c++'
+		})]
+	})  
+	
+
+
+task to complete tomorrow - 25/03/2021 - DONE
+	1.Create new model 'employee.document' with following fields: - DONE
+	Name
+	File (binary)
+	Expiry Date
+	Employee
+	State : Draft(default), Approved, Expired, Refused
+	2. Document display name should be Employee name - Done
+	3. Add Approve and Refuse button to Approve or Refuse Document(change states accordingly) - Working - Partial Done.
+	4. If Expiry Date = Current Date, Document state will be changed to Expired. - Done
+	5. Add Smart Button in Employee View to display it’s related Documents. - Done
+	6. Create related menus and form/tree views - Done
+
+
+
+
+set_values() and get_values():- Done
+	- use case :-
+	- implementation :-
+		1.model
+			1.create new file related to configuration and make new transientmodel inherited with "re.config.settings".
+			2.add new fields
+			3.use get_values
+			4.use set_values
+		2.xml
+			1.create new file related to setting
+			2.create new record - inside - use - xapth for put new field to res.config.settings xml
+	
+
+
+
+
+Task related to add new config settings to settings tab 
+	- add new setting button to side bar along with icon 
+	- on click of that newly created setting button show its related view like (in this case)
+		- show mail.activity activity - (many2one)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//task related wizard -
+	- desc :-
+		On button click(header btn)
+	
+
+
+	 
